@@ -1,5 +1,8 @@
 # {{PROJECT_NAME}}
 
+[![language version][language image]][language url]
+[![License][license-image]][license-url]
+
 {{PROJECT_DESCRIPTION}}
 
 ## Overview
@@ -51,10 +54,6 @@
 ├── {{DIRECTORY_2}}/          # {{DIRECTORY_2_DESCRIPTION}}
 └── README.md
 ```
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 
