@@ -7,5 +7,5 @@ YELLOW='\033[0;33m'
 NC='\033[0m'
 
 printf -- "--- %bpre-commit%b hook ---\n" "$BLUE" "$NC"
-printf "No test yet."
+printf "No test yet.\n"
 printf -- "--- %bpre-commit%b hook completed %bsuccessfully%b ---\n\n" "$BLUE" "$NC" "$GREEN" "$NC"
