@@ -37,7 +37,6 @@ Point new developers to:
 
 ```
 README.md               # Project overview, setup
-CONTRIBUTING.md        # Contribution guidelines
 ARCHITECTURE.md        # Architecture overview
 docs/adr/              # Architecture decisions
 .env.example           # Configuration template
@@ -89,7 +88,6 @@ docs/
    - Follow naming patterns
 
 5. **How do I deploy?**
-   - See `CONTRIBUTING.md`
    - Follow deployment guide
 
 ## Mentoring Approach

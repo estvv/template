@@ -122,7 +122,6 @@ Comprehensive checklist for reviewing pull requests.
 - [ ] README updated if needed
 - [ ] API documentation updated if needed
 - [ ] Architecture docs updated if needed
-- [ ] CHANGELOG updated
 - [ ] Migration guides if needed
 
 ## Design

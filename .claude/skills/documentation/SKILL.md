@@ -325,10 +325,6 @@ Basic example.
 - [API](./docs/API.md)
 - [Architecture](./docs/ARCHITECTURE.md)
 
-## Contributing
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md)
-
 ## License
 
 MIT

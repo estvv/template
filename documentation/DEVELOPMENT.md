@@ -197,8 +197,6 @@ git push origin feature/my-feature
 
 ### Commit Guidelines
 
-Follow [Conventional Commits](./../CONTRIBUTING.md#commit-guidelines):
-
 ```
 <type>(<scope>): <subject>
 
@@ -882,7 +880,3 @@ chmod +x scripts/*.sh
 - Check existing issues on GitHub
 - Ask in team chat: {{SLACK_CHANNEL}}
 - Office hours: {{OFFICE_HOURS}}
-
-## Contributing
-
-See [CONTRIBUTING.md](./../CONTRIBUTING.md) for contribution guidelines.
