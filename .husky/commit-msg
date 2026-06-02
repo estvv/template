@@ -3,6 +3,7 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
+YELLOW='\033[0;33m'
 NC='\033[0m'
 
 printf -- "--- %bcommit-msg%b hook ---\n" "$BLUE" "$NC"
@@ -22,5 +23,5 @@ if ! echo "$commit_msg" | grep -qE "$pattern"; then
   exit 1
 fi
 
-printf "Commit message \"%b\" is valid.\n" "$commit_msg"
+printf "Commit message \"%b%b%b\" is valid.\n" "$YELLOW" "$commit_msg" "$NC"
 printf -- "--- %bcommit-msg%b hook completed %bsuccessfully%b ---\n\n" "$BLUE" "$NC" "$GREEN" "$NC"
