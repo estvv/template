@@ -23,4 +23,4 @@ if ! echo "$commit_msg" | grep -qE "$pattern"; then
 fi
 
 printf "Commit message \"%b\" is valid.\n" "$commit_msg"
-printf -- "--- %bcommit-msg%b hook completed %bsuccessfully%b ---\n" "$BLUE" "$NC" "$GREEN" "$NC"
+printf -- "--- %bcommit-msg%b hook completed %bsuccessfully%b ---\n\n" "$BLUE" "$NC" "$GREEN" "$NC"
