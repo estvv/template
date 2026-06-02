@@ -1,1 +1,11 @@
-echo "No tests yet"
+#!/bin/sh
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[0;33m'
+NC='\033[0m'
+
+printf -- "--- %bpre-commit%b hook ---\n" "$BLUE" "$NC"
+printf "No test yet."
+printf -- "--- %bpre-commit%b hook completed %bsuccessfully%b ---\n\n" "$BLUE" "$NC" "$GREEN" "$NC"
