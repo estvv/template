@@ -182,9 +182,9 @@ function requireRole(role) {
 }
 
 // Usage
-app.delete('/api/users/:id', 
-  requireAuth, 
-  requireRole('admin'), 
+app.delete('/api/users/:id',
+  requireAuth,
+  requireRole('admin'),
   deleteUser
 );
 ```
@@ -195,12 +195,12 @@ app.delete('/api/users/:id',
 // Check resource ownership
 async function deletePost(req, res) {
   const post = await Post.findById(req.params.id);
-  
+
   // Verify ownership
   if (post.userId !== req.user.id && !req.user.roles.includes('admin')) {
     return res.status(403).json({ error: 'Forbidden' });
   }
-  
+
   await post.delete();
   res.json({ success: true });
 }
@@ -232,11 +232,11 @@ const UserSchema = z.object({
 // Validate
 function validateUser(data) {
   const result = UserSchema.safeParse(data);
-  
+
   if (!result.success) {
     throw new ValidationError(result.error);
   }
-  
+
   return result.data;
 }
 ```
@@ -282,7 +282,7 @@ const safeCSS = /* use proper escaping for CSS */;
 ```{{LANGUAGE}}
 // Set CSP headers
 app.use((req, res, next) => {
-  res.setHeader('Content-Security-Policy', 
+  res.setHeader('Content-Security-Policy',
     "default-src 'self'; " +
     "script-src 'self' 'unsafe-inline' https://cdn.example.com; " +
     "style-src 'self' 'unsafe-inline'; " +
@@ -315,13 +315,13 @@ async function saveUser(user) {
   // Encrypt PII
   user.ssn = await encrypt(user.ssn);
   user.creditCard = await encrypt(user.creditCard);
-  
+
   await db.users.create(user);
 }
 
 async function getUser(id) {
   const user = await db.users.findById(id);
-  
+
   // Decrypt when retrieving
   return {
     ...user,
@@ -570,7 +570,7 @@ function verifyWebhook(payload: string, signature: string): boolean {
     .createHmac('sha256', WEBHOOK_SECRET)
     .update(payload)
     .digest('hex');
-  
+
   return crypto.timingSafeEqual(
     Buffer.from(signature),
     Buffer.from(expected)
@@ -579,11 +579,11 @@ function verifyWebhook(payload: string, signature: string): boolean {
 
 app.post('/webhook', (req, res) => {
   const signature = req.headers['x-webhook-signature'];
-  
+
   if (!verifyWebhook(req.body, signature)) {
     return res.status(401).send('Invalid signature');
   }
-  
+
   // Process webhook
 });
 ```

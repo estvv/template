@@ -288,12 +288,12 @@ function {{FUNCTION_NAME}}({{PARAMS}}): {{RETURN_TYPE}} {
 class {{CLASS_NAME}} {
   // Properties
   private {{PROPERTY}}: {{TYPE}};
-  
+
   // Constructor
   constructor({{PARAMS}}) {
     // Initialization
   }
-  
+
   // Methods
   public {{METHOD}}(): {{RETURN_TYPE}} {
     // Implementation
@@ -387,14 +387,14 @@ describe('{{FUNCTION_NAME}}', () => {
   it('should {{EXPECTED_BEHAVIOR}}', () => {
     // Arrange
     const input = {{INPUT}};
-    
+
     // Act
     const result = {{FUNCTION_NAME}}(input);
-    
+
     // Assert
     expect(result).toBe({{EXPECTED}});
   });
-  
+
   it('should throw error when {{CONDITION}}', () => {
     expect(() => {{FUNCTION_NAME}}({{INVALID_INPUT}}))
       .toThrow({{ERROR_TYPE}});
@@ -408,16 +408,16 @@ describe('API /{{ENDPOINT}}', () => {
   beforeAll(async () => {
     await setupDatabase();
   });
-  
+
   afterAll(async () => {
     await teardownDatabase();
   });
-  
+
   it('should return {{EXPECTED}}', async () => {
     const response = await request(app)
       .get('/{{ENDPOINT}}')
       .set('Authorization', `Bearer ${token}`);
-    
+
     expect(response.status).toBe(200);
     expect(response.body).toMatchObject({{EXPECTED_BODY}});
   });

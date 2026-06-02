@@ -14,7 +14,7 @@
         ╱╲
        ╱  ╲
       ╱ E2E╲      End-to-End Tests (Slow, Expensive)
-     ╱──────╲     
+     ╱──────╲
     ╱        ╲
    ╱Integration╲   Integration Tests (Medium Speed)
   ╱────────────╲
@@ -54,10 +54,10 @@ describe('UserService', () => {
         create: jest.fn().mockResolvedValue({ id: '1', ...userData })
       };
       const service = new UserService(mockRepo);
-      
+
       // Act
       const result = await service.createUser(userData);
-      
+
       // Assert
       expect(result).toMatchObject({
         id: '1',
@@ -66,10 +66,10 @@ describe('UserService', () => {
       });
       expect(mockRepo.create).toHaveBeenCalledWith(userData);
     });
-    
+
     it('should throw error for invalid email', async () => {
       const service = new UserService(mockRepo);
-      
+
       await expect(service.createUser({ email: 'invalid' }))
         .rejects.toThrow(ValidationError);
     });
@@ -92,21 +92,21 @@ describe('UserService', () => {
 describe('User API Integration', () => {
   let app: Application;
   let db: Database;
-  
+
   beforeAll(async () => {
     app = await createTestApp();
     db = await createTestDatabase();
   });
-  
+
   afterAll(async () => {
     await db.close();
     await app.close();
   });
-  
+
   beforeEach(async () => {
     await db.clear();
   });
-  
+
   describe('POST /api/users', () => {
     it('should create user and return 201', async () => {
       const response = await request(app)
@@ -115,28 +115,28 @@ describe('User API Integration', () => {
           email: 'user@example.com',
           name: 'John Doe'
         });
-      
+
       expect(response.status).toBe(201);
       expect(response.body.data).toMatchObject({
         email: 'user@example.com',
         name: 'John Doe'
       });
-      
+
       // Verify in database
       const user = await db.users.findByEmail('user@example.com');
       expect(user).toBeDefined();
     });
-    
+
     it('should return 400 for duplicate email', async () => {
       await db.users.create({ email: 'user@example.com' });
-      
+
       const response = await request(app)
         .post('/api/users')
         .send({
           email: 'user@example.com',
           name: 'Jane Doe'
         });
-      
+
       expect(response.status).toBe(400);
       expect(response.body.error.code).toBe('DUPLICATE_EMAIL');
     });
@@ -160,34 +160,34 @@ describe('User API Integration', () => {
 describe('User Registration Flow E2E', () => {
   let browser: Browser;
   let page: Page;
-  
+
   beforeAll(async () => {
     browser = await launch({ headless: true });
     page = await browser.newPage();
   });
-  
+
   afterAll(async () => {
     await browser.close();
   });
-  
+
   it('should register new user successfully', async () => {
     // Navigate to registration page
     await page.goto('http://localhost:3000/register');
-    
+
     // Fill form
     await page.type('#email', 'user@example.com');
     await page.type('#name', 'John Doe');
     await page.type('#password', 'SecurePass123!');
-    
+
     // Submit
     await page.click('#submit');
-    
+
     // Wait for redirect
     await page.waitForNavigation();
-    
+
     // Verify at dashboard
     expect(page.url()).toContain('/dashboard');
-    
+
     // Verify user created in database
     const user = await db.users.findByEmail('user@example.com');
     expect(user).toBeDefined();
@@ -248,7 +248,7 @@ describe('{{MODULE_NAME}}', () => {
         // Test
       });
     });
-    
+
     describe('when {{ERROR_CONDITION}}', () => {
       it('should throw {{ERROR_TYPE}}', () => {
         // Test
@@ -270,13 +270,13 @@ export const userFixture = {
     name: 'John Doe',
     password: 'SecurePass123!'
   },
-  
+
   invalid: {
     emptyEmail: { email: '', name: 'John Doe' },
     invalidEmail: { email: 'invalid', name: 'John Doe' },
     missingName: { email: 'user@example.com', name: '' }
   },
-  
+
   admin: {
     email: 'admin@example.com',
     name: 'Admin User',
@@ -298,11 +298,11 @@ export class UserFactory {
       ...overrides
     };
   }
-  
+
   static createMany(count: number, overrides = {}) {
     return Array.from({ length: count }, () => this.create(overrides));
   }
-  
+
   static async createAndSave(db: Database, overrides = {}) {
     const user = this.create(overrides);
     return db.users.create(user);
@@ -320,7 +320,7 @@ export async function seedDatabase(db: Database) {
     UserFactory.create({ role: 'user' }),
     UserFactory.create({ role: 'user' })
   ]);
-  
+
   await db.posts.createMany([
     PostFactory.create({ userId: '1', status: 'published' }),
     PostFactory.create({ userId: '2', status: 'draft' })
@@ -509,10 +509,10 @@ it('should {{EXPECTED_BEHAVIOR}}', () => {
   // Arrange
   const input = {{TEST_DATA}};
   const expected = {{EXPECTED_OUTPUT}};
-  
+
   // Act
   const result = {{FUNCTION}}(input);
-  
+
   // Assert
   expect(result).toEqual(expected);
 });
@@ -556,12 +556,12 @@ describe('divide', () => {
   it('should divide two numbers', () => {
     expect(divide(10, 2)).toBe(5);
   });
-  
+
   // Edge case
   it('should throw error for division by zero', () => {
     expect(() => divide(10, 0)).toThrow(DivisionByZeroError);
   });
-  
+
   // Edge case
   it('should handle negative numbers', () => {
     expect(divide(-10, 2)).toBe(-5);
@@ -639,7 +639,7 @@ it('should calculate total with tax', () => {
 
 // 2. Write minimal code (Green)
 function calculateTotal(items, options) {
-  const subtotal = items.reduce((sum, item) => 
+  const subtotal = items.reduce((sum, item) =>
     sum + item.price * item.quantity, 0);
   const tax = options.tax / 100;
   return subtotal * (1 + tax);
@@ -651,7 +651,7 @@ function calculateTotal(items, options = {}) {
     (sum, { price, quantity }) => sum + price * quantity,
     0
   );
-  
+
   const taxRate = (options.tax || 0) / 100;
   return subtotal * (1 + taxRate);
 }
@@ -670,11 +670,11 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [18, 20]
-    
+
     services:
       postgres:
         image: postgres:15
@@ -685,29 +685,29 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-    
+
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      
+
       - name: Install dependencies
         run: npm ci
-      
+
       - name: Run linter
         run: npm run lint
-      
+
       - name: Run unit tests
         run: npm run test:unit
-      
+
       - name: Run integration tests
         run: npm run test:integration
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test
-      
+
       - name: Upload coverage
         uses: codecov/codecov-action@v3
         with:
@@ -738,12 +738,12 @@ export const options = {
 
 export default function() {
   const res = http.get('http://localhost:3000/api/users');
-  
+
   check(res, {
     'status is 200': (r) => r.status === 200,
     'response time < 200ms': (r) => r.timings.duration < 200
   });
-  
+
   sleep(1);
 }
 ```
@@ -753,14 +753,14 @@ export default function() {
 ```{{LANGUAGE}}
 describe('Performance', () => {
   it('should handle 1000 requests per second', async () => {
-    const requests = Array(1000).fill(null).map(() => 
+    const requests = Array(1000).fill(null).map(() =>
       request(app).get('/api/health')
     );
-    
+
     const start = Date.now();
     await Promise.all(requests);
     const duration = Date.now() - start;
-    
+
     expect(duration).toBeLessThan(1000);
   });
 });

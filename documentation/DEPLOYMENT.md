@@ -6,7 +6,7 @@
 
 **Deployment Platform:** `{{PLATFORM}}` (AWS / GCP / Azure / Kubernetes / Docker / etc.)
 
-**CI/CD Tool:** `{{CI_CD_TOOL}}` (GitHub Actions / GitLab CI / CircleCI / Jenkins)
+**CI/CD Tool:** `{{CI_CD_TOOL}}` (GitHub Actions)
 
 **Infrastructure as Code:** `{{IAC_TOOL}}` (Terraform / Pulumi / CloudFormation)
 
@@ -305,46 +305,6 @@ jobs:
         run: {{DEPLOY_COMMAND}}
 ```
 
-### GitLab CI Example
-
-```yaml
-# .gitlab-ci.yml
-stages:
-  - lint
-  - test
-  - build
-  - deploy
-
-lint:
-  stage: lint
-  script: {{LINT_COMMAND}}
-
-test:
-  stage: test
-  script:
-    - {{TEST_COMMAND}}
-  coverage: '/Coverage: \d+%/'
-
-build:
-  stage: build
-  script:
-    - docker build -t $IMAGE_NAME:$CI_COMMIT_SHA .
-    - docker push $IMAGE_NAME:$CI_COMMIT_SHA
-  only:
-    - main
-
-deploy_production:
-  stage: deploy
-  script:
-    - {{DEPLOY_COMMAND}}
-  environment:
-    name: production
-    url: {{PROD_URL}}
-  only:
-    - main
-  when: manual
-```
-
 ### Deployment Strategies
 
 #### Blue-Green Deployment
@@ -535,7 +495,7 @@ app.get('/health', (req, res) => {
       externalApi: await checkExternalApi()
     }
   };
-  
+
   res.status(200).json(health);
 });
 
@@ -691,10 +651,10 @@ kubectl set image deployment/{{APP_NAME}} {{APP_NAME}}={{IMAGE_NAME}}:previous-t
    # Notify team
    # Rollback application
    kubectl rollout undo deployment/{{APP_NAME}}
-   
+
    # Verify rollback successful
    kubectl rollout status deployment/{{APP_NAME}}
-   
+
    # Monitor metrics
    ```
 

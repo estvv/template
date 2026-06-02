@@ -27,8 +27,8 @@ Authorization: Bearer <token>
 
 #### {{ENDPOINT_1}}
 
-**Method:** `{{HTTP_METHOD}}`  
-**Path:** `{{PATH}}`  
+**Method:** `{{HTTP_METHOD}}`
+**Path:** `{{PATH}}`
 **Description:** {{DESCRIPTION}}
 
 **Request:**
@@ -78,8 +78,8 @@ Authorization: Bearer <token>
 
 #### {{ENDPOINT_2}}
 
-**Method:** `{{HTTP_METHOD}}`  
-**Path:** `{{PATH}}`  
+**Method:** `{{HTTP_METHOD}}`
+**Path:** `{{PATH}}`
 **Description:** {{DESCRIPTION}}
 
 **Request:**
@@ -101,8 +101,8 @@ Authorization: Bearer <token>
 
 #### {{ENDPOINT_3}}
 
-**Method:** `{{HTTP_METHOD}}`  
-**Path:** `{{PATH}}`  
+**Method:** `{{HTTP_METHOD}}`
+**Path:** `{{PATH}}`
 **Description:** {{DESCRIPTION}}
 
 ## Request/Response Formats
@@ -254,8 +254,8 @@ Accept: application/vnd.{{API_NAME}}.v1+json
 
 #### {{EVENT_1}}
 
-**Event:** `{{EVENT_NAME}}`  
-**Direction:** {{DIRECTION}} (client/server)  
+**Event:** `{{EVENT_NAME}}`
+**Direction:** {{DIRECTION}} (client/server)
 **Description:** {{DESCRIPTION}}
 
 **Payload:**
