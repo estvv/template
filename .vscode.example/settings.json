@@ -1,0 +1,13 @@
+{
+  "restoreTerminals.runOnStartup": false,
+  "restoreTerminals.terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "git",
+          "commands": []
+        }
+      ]
+    }
+  ]
+}
