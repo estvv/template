@@ -5,7 +5,7 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-echo "--- " + $BLUE + "commit-msg" + $NC + " hook ---"
+echo "--- ${BLUE}commit-msg${NC} hook ---"
 
 commit_msg=$(cat "$1")
 pattern="^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?:\s.+"
@@ -22,8 +22,8 @@ if ! echo "$commit_msg" | grep -qE "$pattern"; then
   echo "  fix(intercontrats): resolve pagination offset bug"
   echo "  docs(readme): update installation instructions"
   echo ""
-  echo "--- " + $BLUE + "commit-msg" + $NC + " hook completed " + $RED "failed" + $NC "---"
+  echo "--- ${BLUE}commit-msg${NC} hook completed ${RED}failed${NC} ---"
   exit 1
 fi
 
-echo "--- " + $BLUE + "commit-msg" + $NC + " hook completed " + $GREEN "successfully" + $NC "---"
+echo "--- ${BLUE}commit-msg${NC} hook completed ${GREEN}successfully${NC} ---"

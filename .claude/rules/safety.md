@@ -311,3 +311,56 @@ It's better to ask for clarification 10 times than to make an irreversible mista
 - Answering questions
 
 **DEFAULT BEHAVIOR:** Ask first, act second.
+
+## Tool Usage Requirements
+
+### Todo List Tool
+
+**When to use:**
+- When planning multiple tasks or steps
+- When user asks for a task that requires multiple actions
+- When breaking down complex work into manageable pieces
+- When tracking progress on multi-step operations
+
+**Example scenarios:**
+```
+User: "Add authentication to the API"
+
+→ Use todowrite to plan:
+  - Set up authentication middleware (pending)
+  - Add JWT token generation (pending)
+  - Implement token validation (pending)
+  - Add tests for authentication (pending)
+```
+
+### Question Tool
+
+**When to use:**
+- When in plan mode and instructions are unclear
+- When multiple interpretations exist
+- When you need to make a decision between options
+- When user preferences are needed before proceeding
+- When you're unsure which approach to take
+
+**How to use:**
+1. Present clear options to the user
+2. Explain tradeoffs of each option
+3. Provide a recommended choice if appropriate
+4. Wait for user's decision before proceeding
+
+**Example scenarios:**
+```
+User: "Add a database"
+
+→ Use question tool:
+  "Which database would you like to use?"
+  Options:
+  - PostgreSQL (Recommended for relational data)
+  - MongoDB (Good for flexible schemas)
+  - SQLite (Good for development/small projects)
+```
+
+**When NOT to use:**
+- For simple, straightforward tasks
+- When user has already made the decision
+- When there's an obvious best choice based on context

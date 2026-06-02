@@ -322,13 +322,6 @@ It's better to ask for clarification 10 times than to make an irreversible mista
 - When breaking down complex work into manageable pieces
 - When tracking progress on multi-step operations
 
-**How to use:**
-1. Create a structured task list with `todowrite`
-2. Mark tasks as `pending`, `in_progress`, or `completed`
-3. Update status in real-time as you work
-4. Keep exactly one task `in_progress` at a time
-5. Mark `completed` only after verifying the work is done
-
 **Example scenarios:**
 ```
 User: "Add authentication to the API"
