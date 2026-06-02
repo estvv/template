@@ -1,7 +1,7 @@
 ---
-name: documentation
 description: Write clear, comprehensive documentation. Use when creating README, API docs, architecture docs, user guides, or documenting code.
-license: MIT
+disable-model-invocation: true
+argument-hint: <file-or-directory>
 ---
 
 ## Core Principles
@@ -48,9 +48,9 @@ In order to install the package, you will need to run the installation command.
 
 # Good
 Install the package:
-```bash
+\`\`\`bash
 npm install package-name
-```
+\`\`\`
 ```
 
 ### Front-Load Information
@@ -60,9 +60,9 @@ There are many configuration options. Before we discuss those, let's talk about 
 
 # Good
 Install in 30 seconds:
-```bash
+\`\`\`bash
 npm install package-name
-```
+\`\`\`
 ```
 
 ### Use Examples
@@ -71,9 +71,9 @@ npm install package-name
 The function accepts three parameters: name (string), age (number), email (string).
 
 # Good
-```typescript
+\`\`\`typescript
 createUser('John Doe', 30, 'john@example.com');
-```
+\`\`\`
 
 Parameters:
 - name (string): User's full name
@@ -293,7 +293,7 @@ docs/
 
 ## README Template
 
-```markdown
+\`\`\`markdown
 # Project Name
 
 Brief description.
@@ -332,12 +332,12 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md)
 ## License
 
 MIT
-```
+\`\`\`
 
 ## Code Documentation
 
 ### Functions
-```typescript
+\`\`\`typescript
 /**
  * Calculate the total price including tax.
  * 
@@ -351,21 +351,7 @@ MIT
 function calculateTotal(price: number, taxRate: number): number {
   return price * (1 + taxRate);
 }
-```
-
-### Classes
-```typescript
-/**
- * Manages user authentication and sessions.
- * 
- * @example
- * const auth = new AuthService();
- * await auth.login('user@example.com', 'password');
- */
-class AuthService {
-  // ...
-}
-```
+\`\`\`
 
 ## Checklist
 
@@ -379,7 +365,6 @@ Before publishing:
 - [ ] Code blocks have language tags
 - [ ] Prerequisites listed
 
-See `documentation-templates.md` for more templates.
 See `documentation-checklist.md` for comprehensive checklist.
 
 ## Related Skills
