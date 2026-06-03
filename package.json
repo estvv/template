@@ -1,8 +1,19 @@
 {
+  "name": "project-template",
+  "version": "1.0.0",
+  "description": "General-purpose project template with Git hooks and automation scripts",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "setup": "bash scripts/setup.sh",
+    "verify": "bash scripts/verify-prereqs.sh",
+    "clean": "bash scripts/clean.sh --all",
+    "ci": "bash scripts/ci-check.sh",
+    "changelog": "bash scripts/generate-changelog.sh",
+    "secrets": "bash scripts/detect-secrets.sh --staged",
+    "branch": "bash scripts/validate-branch.sh"
+  },
   "devDependencies": {
     "husky": "^9.1.7"
-  },
-  "scripts": {
-    "prepare": "husky"
   }
 }

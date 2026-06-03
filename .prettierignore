@@ -1,0 +1,46 @@
+# Prettier ignore patterns
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Generated files
+*.min.js
+*.min.css
+*.min.html
+
+# Data files
+*.json
+*.md
+!README.md
+!CHANGELOG.md
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

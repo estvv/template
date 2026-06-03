@@ -1,3 +1,7 @@
+# LLMs
+# .opencode
+# .claude
+
 # Dependencies
 node_modules/
 package-lock.json
@@ -77,3 +81,81 @@ credentials/
 *.bak
 *.backup
 *.orig
+
+# Rust
+Cargo.lock
+target/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+Gopkg.lock
+Gopkg.toml
+go.sum
+
+# Java
+.gradle/
+mvnw
+mvnw.cmd
+.mvn/
+*.jar
+*.war
+*.ear
+*.class
+*.jar
+
+# PHP
+vendor/
+composer.lock
+*.cache
+
+# Ruby
+*.gem
+*.rbc
+.bundle/
+vendor/bundle
+Gemfile.lock
+
+# .NET/C#
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+.idea/
+bin/
+obj/
+*.nupkg
+*.snupkg
+packages/
+*.user
+*.suo
+
+# Swift/Objective-C
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+Pods/
+Podfile.lock
+Carthage/Build/
+.build/
+
+# Python (additional)
+venv/
+env/
+.venv/
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.mypy_cache/
