@@ -168,6 +168,11 @@ If user says "commit these changes", you can proceed. User has given approval.
 - Document what action you're taking
 - Proceed with that action
 
+## Interdictions
+
+- **NEVER** edit the AGENTS.md file without explicit approval
+- **NEVER** modify the instructions without explicit approval
+
 ## Workflow
 
 ### Safe Default Workflow
